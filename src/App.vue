@@ -1,39 +1,6 @@
 <template>
   <section>
-    <h2>Basic</h2>
-    <span>{{ $t('confirm') }}</span> |
-    <span>{{ cancelMsg }}</span>
-  </section>
-  <section>
-    <h2>Literal interpolation</h2>
-    <span>{{ $t('email', { account: 'johan', domain: 'gmail.com' }) }}</span>
-  </section>
-  <section>
-    <h2>Named interpolation</h2>
-    <span>{{ $t('sayHello', { name: 'John' }) }}</span>
-  </section>
-  <section>
-    <h2>List interpolation</h2>
-    <span>{{ $t('hello', [$t('day.morning'), $t('day.evening')]) }}</span>
-  </section>
-  <section>
-    <h2>Pluralization</h2>
-    <span>{{ $tc('car', 2) }}</span>
-  </section>
-  <section>
-    <h2>Linked messages</h2>
-    <span>{{ $t('linked', { name: 'John' }, [$t('day.morning')]) }}</span>
-  </section>
-  <section>
-    <h2>Built-in Modifiers</h2>
-    <span>{{ $t('builtInModifiers') }}</span>
-  </section>
-  <section>
-    <h2>Custom Modifiers</h2>
-    <span>{{ $t('customModifiers') }}</span>
-  </section>
-  <section>
-    <h2 style="color: darkred">Change Locale</h2>
+    <h1 style="color: darkred">Change Locale</h1>
     <button
       v-for="lang in ['korean', 'english', 'chinese']"
       :key="`locale-${lang}`"
@@ -52,6 +19,41 @@
       </select>
     </div>
   </section>
+  <br />
+  <hr />
+  <section>
+    <h3>Basic</h3>
+    <span>{{ $t('confirm') }}</span> |
+    <span>{{ cancelMsg }}</span>
+  </section>
+  <section>
+    <h3>Literal interpolation</h3>
+    <span>{{ $t('email', { account: 'johan', domain: 'gmail.com' }) }}</span>
+  </section>
+  <section>
+    <h3>Named interpolation</h3>
+    <span>{{ $t('sayHello', { name: 'John' }) }}</span>
+  </section>
+  <section>
+    <h3>List interpolation</h3>
+    <span>{{ $t('hello', [$t('day.morning'), $t('day.evening')]) }}</span>
+  </section>
+  <section>
+    <h3>Pluralization</h3>
+    <span>{{ $tc('car', 2) }}</span>
+  </section>
+  <section>
+    <h3>Linked messages</h3>
+    <span>{{ $t('linked', { name: 'John' }, [$t('day.morning')]) }}</span>
+  </section>
+  <section>
+    <h3>Built-in Modifiers</h3>
+    <span>{{ $t('builtInModifiers') }}</span>
+  </section>
+  <section>
+    <h3>Custom Modifiers</h3>
+    <span>{{ $t('customModifiers') }}</span>
+  </section>
 </template>
 
 <script>
@@ -63,6 +65,7 @@ export default {
   setup() {
     const { t, availableLocales, locale } = useI18n();
     console.log('availableLocales: ', availableLocales);
+
     const cancelMsg = computed(() => t('cancel'));
     const changeLocale = lang => {
       locale.value = (() => {
