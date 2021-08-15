@@ -37,7 +37,7 @@
   </section>
   <section>
     <h3>List interpolation</h3>
-    <span>{{ $t('hello', [$t('day.morning'), $t('day.evening')]) }}</span>
+    <span>{{ $t('greeting', [$t('day.morning'), $t('day.evening')]) }}</span>
   </section>
   <section>
     <h3>Pluralization</h3>
@@ -45,7 +45,7 @@
   </section>
   <section>
     <h3>Linked messages</h3>
-    <span>{{ $t('linked', { name: 'John' }, [$t('day.morning')]) }}</span>
+    <span>{{ $t('linked') }}</span>
   </section>
   <section>
     <h3>Built-in Modifiers</h3>
@@ -69,7 +69,6 @@ export default {
   name: 'App',
   setup() {
     const { t, availableLocales, locale } = useI18n();
-    console.log(useI18n());
     const consoleStyle = 'color: OrangeRed; background-color: PapayaWhip;';
     console.info(
       `%cavailableLocales: ${availableLocales}\ncurrentLocale: ${locale.value}`,

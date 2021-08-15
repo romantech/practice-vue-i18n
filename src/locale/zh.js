@@ -1,11 +1,12 @@
+/* cSpell:disable */
 export default {
   confirm: '确认',
   cancel: '取消',
   sayHello: '您好 {name}', // Named interpolation
-  hello: '{0}好', // List interpolation
+  greeting: '{0}好', // List interpolation
   car: '车 | 很多车', // Pluralization
   email: "{account}{'@'}{domain}", // Literal interpolation
-  linked: '@:sayHello @:hello', // Linked messages
+  linked: '@:localeName.ko / @:localeName.en / @:localeName.zh', // Linked messages
   english: 'english',
   helloWorld: 'Hello World',
   builtInModifiers: '@.upper:english', // Built-in Modifiers

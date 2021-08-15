@@ -1,11 +1,12 @@
+/* cSpell:disable */
 export default {
   confirm: '확인',
   cancel: '취소',
   sayHello: '안녕하세요 {name}', // Named interpolation
-  hello: '좋은 {0}입니다', // List interpolation
+  greeting: '좋은 {0}입니다', // List interpolation
   car: '자동차 | 자동차들', // Pluralization
   email: "{account}{'@'}{domain}", // Literal interpolation
-  linked: '@:sayHello @:hello', // Linked messages
+  linked: '@:localeName.ko / @:localeName.en / @:localeName.zh', // Linked messages
   english: 'english',
   helloWorld: 'Hello World',
   builtInModifiers: '@.upper:english', // Built-in Modifiers
