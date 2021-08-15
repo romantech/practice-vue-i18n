@@ -15,9 +15,25 @@ export default {
     afternoon: '中午',
     evening: '晚上',
   },
-  changeLocale: {
-    korean: '韩文',
-    english: '英文',
-    chinese: '中文',
+  localeName: {
+    ko: '韩文',
+    en: '英文',
+    zh: '中文',
+  },
+  datetimeFormats: {
+    short: {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    },
+    long: {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      weekday: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    },
   },
 };

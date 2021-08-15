@@ -15,9 +15,26 @@ export default {
     afternoon: '점심',
     evening: '저녁',
   },
-  changeLocale: {
-    korean: '한국어',
-    english: '영어',
-    chinese: '중국어',
+  localeName: {
+    ko: '한국어',
+    en: '영어',
+    zh: '중국어',
+  },
+  // more option: https://tc39.es/ecma402/#datetimeformat-objects
+  datetimeFormats: {
+    short: {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    },
+    long: {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      weekday: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    },
   },
 };

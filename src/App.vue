@@ -1,11 +1,12 @@
+<!-- cSpell:disable -->
 <template>
   <section>
-    <h1 style="color: darkred">Change Locale</h1>
+    <h1 style="color: OrangeRed">Change Locale</h1>
     <button
-      v-for="lang in ['korean', 'english', 'chinese']"
+      v-for="lang in $i18n.availableLocales"
       :key="`locale-${lang}`"
-      v-html="$t(`changeLocale.${lang}`)"
-      @click="() => changeLocale(lang)"
+      v-html="$t(`localeName.${lang}`)"
+      @click="$i18n.locale = lang"
     ></button>
     <div class="locale-changer">
       <select v-model="$i18n.locale">
@@ -54,6 +55,10 @@
     <h3>Custom Modifiers</h3>
     <span>{{ $t('customModifiers') }}</span>
   </section>
+  <section>
+    <h3>Datetime Formatting</h3>
+    <span>{{ $d(new Date(), 'long', $i18n.locale) }}</span>
+  </section>
 </template>
 
 <script>
@@ -64,14 +69,15 @@ export default {
   name: 'App',
   setup() {
     const { t, availableLocales, locale } = useI18n();
+    console.log(useI18n());
     const consoleStyle = 'color: OrangeRed; background-color: PapayaWhip;';
-    console.log(
+    console.info(
       `%cavailableLocales: ${availableLocales}\ncurrentLocale: ${locale.value}`,
       consoleStyle,
     );
 
     onUpdated(() => {
-      console.log(`%ccurrentLocale: ${locale.value}`, consoleStyle);
+      console.info(`%ccurrentLocale: ${locale.value}`, consoleStyle);
     });
 
     const cancelMsg = computed(() => t('cancel'));
@@ -87,6 +93,7 @@ export default {
         }
       })();
     };
+
     return { cancelMsg, changeLocale };
   },
 };

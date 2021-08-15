@@ -1,3 +1,4 @@
+/* cSpell:disable */
 import { createI18n } from 'vue-i18n';
 import ko from '@/locale/ko';
 import en from '@/locale/en';
@@ -27,13 +28,27 @@ const getLang = () => {
 
 export default createI18n({
   locale: getLang(),
-  fallbackLocale: ['ko', 'en', 'zh'], // set fallback locale
+  fallbackLocale: {
+    // set fallback locale
+    'ko-KR': ['ko'],
+    'en-US': ['en'],
+    'zh-Cn': ['zh'],
+    default: ['ko', 'en', 'zh'],
+  },
   messages: {
     ko,
     en,
     zh,
   },
+  datetimeFormats: {
+    ko: ko.datetimeFormats,
+    en: en.datetimeFormats,
+    zh: zh.datetimeFormats,
+  },
   modifiers: {
+    // custom modifiers
     snakeCase: str => str.split(' ').join('_'),
   },
+  silentTranslationWarn: true, // 개발모드에서 translation warn 끄기
+  silentFallbackWarn: true, // 개발모드에서 fallback warn 끄기
 });
