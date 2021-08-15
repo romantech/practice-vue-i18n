@@ -5,10 +5,7 @@ import en from '@/locale/en';
 import zh from '@/locale/zh';
 
 const getLang = () => {
-  if (navigator.languages.length > 0) {
-    return navigator.languages[0];
-  }
-  return navigator.language;
+  return navigator.language ? navigator.language : navigator.languages[0];
 };
 
 // 즉시 실행 함수
@@ -32,7 +29,7 @@ export default createI18n({
     // set fallback locale
     'ko-KR': ['ko'],
     'en-US': ['en'],
-    'zh-Cn': ['zh'],
+    'zh-CN': ['zh'],
     default: ['ko', 'en', 'zh'],
   },
   messages: {
