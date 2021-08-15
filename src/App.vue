@@ -5,7 +5,7 @@
       v-for="lang in ['korean', 'english', 'chinese']"
       :key="`locale-${lang}`"
       v-html="$t(`changeLocale.${lang}`)"
-      @click="changeLocale(lang)"
+      @click="() => changeLocale(lang)"
     ></button>
     <div class="locale-changer">
       <select v-model="$i18n.locale">
@@ -58,13 +58,21 @@
 
 <script>
 import { useI18n } from 'vue-i18n';
-import { computed } from 'vue';
+import { computed, onUpdated } from 'vue';
 
 export default {
   name: 'App',
   setup() {
     const { t, availableLocales, locale } = useI18n();
-    console.log('availableLocales: ', availableLocales);
+    const consoleStyle = 'color: OrangeRed; background-color: PapayaWhip;';
+    console.log(
+      `%cavailableLocales: ${availableLocales}\ncurrentLocale: ${locale.value}`,
+      consoleStyle,
+    );
+
+    onUpdated(() => {
+      console.log(`%ccurrentLocale: ${locale.value}`, consoleStyle);
+    });
 
     const cancelMsg = computed(() => t('cancel'));
     const changeLocale = lang => {
