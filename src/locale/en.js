@@ -4,13 +4,13 @@ export default {
   cancel: 'cancellation',
   sayHello: 'Hello {name}', // Named interpolation
   greeting: 'Good {0}', // List interpolation
-  car: 'car | cars', // Pluralization
+  car: 'no car | a car | cars', // Pluralization
   email: "{account}{'@'}{domain}", // Literal interpolation
   linked: '@:localeName.ko / @:localeName.en / @:localeName.zh', // Linked messages
   english: 'english',
   helloWorld: 'Hello World',
   builtInModifiers: '@.upper:english', // Built-in Modifiers
-  customModifiers: "@.snakeCase:{'helloWorld'}", // Built-in Modifiers
+  customModifiers: "@.snakeCase:{'helloWorld'}", // Custom Modifiers
   day: {
     morning: 'morning',
     afternoon: 'afternoon',
