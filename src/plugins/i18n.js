@@ -1,6 +1,7 @@
 /* cSpell:disable */
 import { createI18n } from 'vue-i18n';
 import numberFormats from '@/locale/numberFormats';
+import datetimeFormats from '@/locale/datetimeFormats';
 import ko from '@/locale/ko';
 import en from '@/locale/en';
 import zh from '@/locale/zh';
@@ -38,11 +39,7 @@ export default createI18n({
     en,
     zh,
   },
-  datetimeFormats: {
-    ko: ko.datetimeFormats,
-    en: en.datetimeFormats,
-    zh: zh.datetimeFormats,
-  },
+  datetimeFormats,
   numberFormats,
   modifiers: {
     // custom modifiers

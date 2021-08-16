@@ -24,21 +24,4 @@ export default {
     ko: '한국어',
     zh: '중국어',
   },
-  // more option: https://tc39.es/ecma402/#datetimeformat-objects
-  datetimeFormats: {
-    short: {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    },
-    long: {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      weekday: 'short',
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: false, // 12시간 표기 여부 (오후 1:27 | 14:27)
-    },
-  },
 };

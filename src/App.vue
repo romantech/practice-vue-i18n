@@ -57,13 +57,26 @@
   </section>
   <section>
     <h3>DATETIME FORMATTING</h3>
-    <span>{{ $d(new Date(), 'long', $i18n.locale) }}</span>
+    <span>{{ $d(new Date(), 'long', formattingLocale($i18n.locale)) }}</span>
   </section>
   <section>
     <h3>NUMBER FORMATS</h3>
-    <span><b>CURRENCY : </b>{{ $n(setCurrency(1000000), 'currency') }}</span>
-    | <span><b>DECIMAL : </b>{{ $n(12.11612345, 'decimal') }}</span> |
-    <span><b>PERCENT : </b> {{ $n(0.79173, 'percent') }}</span>
+    <span
+      ><b>CURRENCY : </b
+      >{{
+        $n(setCurrency(1000000), 'currency', formattingLocale($i18n.locale))
+      }}</span
+    >
+    |
+    <span
+      ><b>DECIMAL : </b
+      >{{ $n(12.11612345, 'decimal', formattingLocale($i18n.locale)) }}</span
+    >
+    |
+    <span
+      ><b>PERCENT : </b>
+      {{ $n(0.79173, 'percent', formattingLocale($i18n.locale)) }}</span
+    >
   </section>
 </template>
 
@@ -108,22 +121,20 @@ export default {
     };
 
     const cancelMsg = computed(() => t('cancel'));
-    const changeLocale = lang => {
-      locale.value = (() => {
-        switch (lang) {
-          case 'ko':
-            return 'ko-KR';
-          case 'en':
-            return 'en-US';
-          case 'zh':
-            return 'zh-CN';
-          default:
-            return lang;
-        }
-      })();
+    const formattingLocale = lang => {
+      switch (lang) {
+        case 'ko':
+          return 'ko-KR';
+        case 'en':
+          return 'en-US';
+        case 'zh':
+          return 'zh-CN';
+        default:
+          return lang;
+      }
     };
 
-    return { cancelMsg, changeLocale, setCurrency };
+    return { cancelMsg, formattingLocale, setCurrency };
   },
 };
 </script>

@@ -1,6 +1,6 @@
 /* cSpell:disable */
 export default {
-  ko: {
+  'ko-KR': {
     // reference: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
     currency: {
       style: 'currency', // currency | decimal(기본값) | percent
@@ -25,7 +25,7 @@ export default {
       maximumFractionDigits: 2, // 최대 소수점(백분율 서식은 minDigits와 0 중에서 큰 값이 기본값)
     },
   },
-  en: {
+  'en-US': {
     // reference: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
     currency: {
       style: 'currency', // currency | decimal(기본값) | percent
@@ -50,7 +50,7 @@ export default {
       maximumFractionDigits: 2, // 최대 소수점(백분율 서식은 minDigits와 0 중에서 큰 값이 기본값)
     },
   },
-  zh: {
+  'zh-CN': {
     // reference: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
     currency: {
       style: 'currency', // currency | decimal(기본값) | percent
