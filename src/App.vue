@@ -1,7 +1,7 @@
 <!-- cSpell:disable -->
 <template>
   <section>
-    <h1 style="color: OrangeRed">CHANGE LOCALE</h1>
+    <h1 style="color: OrangeRed">{{ $t('changeLocale') }}</h1>
     <button
       v-for="lang in $i18n.availableLocales"
       :key="`locale-${lang}`"
