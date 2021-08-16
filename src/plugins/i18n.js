@@ -1,5 +1,6 @@
 /* cSpell:disable */
 import { createI18n } from 'vue-i18n';
+import numberFormats from '@/locale/numberFormats';
 import ko from '@/locale/ko';
 import en from '@/locale/en';
 import zh from '@/locale/zh';
@@ -42,11 +43,7 @@ export default createI18n({
     en: en.datetimeFormats,
     zh: zh.datetimeFormats,
   },
-  numberFormats: {
-    ko: ko.numberFormats,
-    en: en.numberFormats,
-    zh: zh.numberFormats,
-  },
+  numberFormats,
   modifiers: {
     // custom modifiers
     snakeCase: str => str.split(' ').join('_'),

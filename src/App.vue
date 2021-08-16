@@ -75,7 +75,11 @@ export default {
   name: 'App',
   setup() {
     const { t, d, availableLocales, locale } = useI18n();
-    const consoleStyle = 'color: OrangeRed; background-color: PapayaWhip;';
+    const consoleStyle = [
+      'color: OrangeRed',
+      'background-color: PapayaWhip',
+    ].join(';');
+
     console.info(
       `%cAVAILABLE_LOCALES: ${availableLocales}\nCURRENT_LOCALE: ${locale.value}`,
       consoleStyle,
@@ -93,8 +97,10 @@ export default {
     const setCurrency = num => {
       switch (locale.value) {
         case 'en':
+        case 'en-US':
           return num / 1100;
         case 'zh':
+        case 'zh-CN':
           return num / 175;
         default:
           return num;
@@ -105,12 +111,12 @@ export default {
     const changeLocale = lang => {
       locale.value = (() => {
         switch (lang) {
-          case 'ko-KR':
-            return 'ko';
-          case 'en-US':
-            return 'en';
-          case 'zh-CN':
-            return 'zh';
+          case 'ko':
+            return 'ko-KR';
+          case 'en':
+            return 'en-US';
+          case 'zh':
+            return 'zh-CN';
           default:
             return lang;
         }
