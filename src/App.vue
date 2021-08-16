@@ -91,7 +91,6 @@ export default {
     });
 
     const setCurrency = num => {
-      console.log(num);
       switch (locale.value) {
         case 'en':
           return num / 1100;
