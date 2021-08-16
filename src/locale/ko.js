@@ -2,6 +2,7 @@
 export default {
   confirm: '확인',
   cancel: '취소',
+  name: '조안',
   sayHello: '안녕하세요 {name}', // Named interpolation
   greeting: '좋은 {0}입니다', // List interpolation
   car: '자동차 0대 | 자동차 1대 | 자동차 여러대', // Pluralization
@@ -35,7 +36,7 @@ export default {
       weekday: 'short',
       hour: 'numeric',
       minute: 'numeric',
-      hour12: true,
+      hour12: false, // 12시간 표기 여부 (오후 1:27 | 14:27)
     },
   },
 };

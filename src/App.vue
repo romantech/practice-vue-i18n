@@ -1,13 +1,13 @@
 <!-- cSpell:disable -->
 <template>
   <section>
-    <h1 style="color: OrangeRed">Change Locale</h1>
+    <h1 style="color: OrangeRed">CHANGE LOCALE</h1>
     <button
       v-for="lang in $i18n.availableLocales"
       :key="`locale-${lang}`"
       v-html="$t(`localeName.${lang}`)"
-      @click="$i18n.locale = lang"
-    ></button>
+      @click="$i18n.locale = lang /* changeLocale(lang) */"
+    />
     <div class="locale-changer">
       <select v-model="$i18n.locale">
         <option
@@ -23,40 +23,40 @@
   <br />
   <hr />
   <section>
-    <h3>Basic</h3>
+    <h3>BASIC</h3>
     <span>{{ $t('confirm') }}</span> |
     <span>{{ cancelMsg }}</span>
   </section>
   <section>
-    <h3>Literal interpolation</h3>
+    <h3>LITERAL INTERPOLATION</h3>
     <span>{{ $t('email', { account: 'johan', domain: 'gmail.com' }) }}</span>
   </section>
   <section>
-    <h3>Named interpolation</h3>
-    <span>{{ $t('sayHello', { name: 'John' }) }}</span>
+    <h3>NAMED INTERPOLATION</h3>
+    <span>{{ $t('sayHello', { name: $t('name') }) }}</span>
   </section>
   <section>
-    <h3>List interpolation</h3>
+    <h3>LIST INTERPOLATION</h3>
     <span>{{ $t('greeting', [$t('day.morning'), $t('day.evening')]) }}</span>
   </section>
   <section>
-    <h3>Pluralization</h3>
-    <span>{{ $tc('car', 0) }}</span>
+    <h3>PLURALIZATION</h3>
+    <span>{{ $tc('car', 100) }}</span>
   </section>
   <section>
-    <h3>Linked messages</h3>
+    <h3>LINKED MESSAGES</h3>
     <span>{{ $t('linked') }}</span>
   </section>
   <section>
-    <h3>Built-in Modifiers</h3>
+    <h3>BUILT-IN MODIFIERS</h3>
     <span>{{ $t('builtInModifiers') }}</span>
   </section>
   <section>
-    <h3>Custom Modifiers</h3>
+    <h3>CUSTOM MODIFIERS</h3>
     <span>{{ $t('customModifiers') }}</span>
   </section>
   <section>
-    <h3>Datetime Formatting</h3>
+    <h3>DATETIME FORMATTING</h3>
     <span>{{ $d(new Date(), 'long', $i18n.locale) }}</span>
   </section>
 </template>
@@ -68,27 +68,34 @@ import { computed, onUpdated } from 'vue';
 export default {
   name: 'App',
   setup() {
-    const { t, availableLocales, locale } = useI18n();
+    const { t, d, availableLocales, locale } = useI18n();
     const consoleStyle = 'color: OrangeRed; background-color: PapayaWhip;';
     console.info(
-      `%cavailableLocales: ${availableLocales}\ncurrentLocale: ${locale.value}`,
+      `%cAVAILABLE_LOCALES: ${availableLocales}\nCURRENT_LOCALE: ${locale.value}`,
+      consoleStyle,
+    );
+
+    console.info(
+      `%cCURRENT_TIME: ${d(new Date(), 'long', 'en')}`,
       consoleStyle,
     );
 
     onUpdated(() => {
-      console.info(`%ccurrentLocale: ${locale.value}`, consoleStyle);
+      console.info(`%cCURRENT_LOCALE: ${locale.value}`, consoleStyle);
     });
 
     const cancelMsg = computed(() => t('cancel'));
     const changeLocale = lang => {
       locale.value = (() => {
         switch (lang) {
-          case 'korean':
+          case 'ko-KR':
             return 'ko';
-          case 'english':
+          case 'en-US':
             return 'en';
-          case 'chinese':
+          case 'zh-CN':
             return 'zh';
+          default:
+            return lang;
         }
       })();
     };
@@ -107,6 +114,7 @@ export default {
   color: #2c3e50;
 
   section button {
+    height: 30px;
     margin-right: 10px;
   }
   section > button:last-child {
@@ -116,7 +124,7 @@ export default {
   .locale-changer {
     display: inline-block;
     select {
-      height: 23px;
+      height: 30px;
       width: 50px;
     }
   }

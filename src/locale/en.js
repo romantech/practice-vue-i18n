@@ -1,7 +1,8 @@
 /* cSpell:disable */
 export default {
-  confirm: 'confirmation',
-  cancel: 'cancellation',
+  confirm: 'Confirm',
+  cancel: 'Cancel',
+  name: 'Johan',
   sayHello: 'Hello {name}', // Named interpolation
   greeting: 'Good {0}', // List interpolation
   car: 'no car | a car | cars', // Pluralization
