@@ -42,6 +42,11 @@ export default createI18n({
     en: en.datetimeFormats,
     zh: zh.datetimeFormats,
   },
+  numberFormats: {
+    ko: ko.numberFormats,
+    en: en.numberFormats,
+    zh: zh.numberFormats,
+  },
   modifiers: {
     // custom modifiers
     snakeCase: str => str.split(' ').join('_'),

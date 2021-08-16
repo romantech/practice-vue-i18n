@@ -59,6 +59,12 @@
     <h3>DATETIME FORMATTING</h3>
     <span>{{ $d(new Date(), 'long', $i18n.locale) }}</span>
   </section>
+  <section>
+    <h3>NUMBER FORMATS</h3>
+    <span><b>CURRENCY : </b>{{ $n(setCurrency(1000000), 'currency') }}</span>
+    | <span><b>DECIMAL : </b>{{ $n(12.11612345, 'decimal') }}</span> |
+    <span><b>PERCENT : </b> {{ $n(0.79173, 'percent') }}</span>
+  </section>
 </template>
 
 <script>
@@ -84,6 +90,18 @@ export default {
       console.info(`%cCURRENT_LOCALE: ${locale.value}`, consoleStyle);
     });
 
+    const setCurrency = num => {
+      console.log(num);
+      switch (locale.value) {
+        case 'en':
+          return num / 1100;
+        case 'zh':
+          return num / 175;
+        default:
+          return num;
+      }
+    };
+
     const cancelMsg = computed(() => t('cancel'));
     const changeLocale = lang => {
       locale.value = (() => {
@@ -100,7 +118,7 @@ export default {
       })();
     };
 
-    return { cancelMsg, changeLocale };
+    return { cancelMsg, changeLocale, setCurrency };
   },
 };
 </script>
@@ -112,6 +130,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  padding-bottom: 20px;
 
   section button {
     height: 30px;

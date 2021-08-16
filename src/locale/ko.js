@@ -41,4 +41,25 @@ export default {
       hour12: false, // 12시간 표기 여부 (오후 1:27 | 14:27)
     },
   },
+  numberFormats: {
+    // reference: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+    currency: {
+      style: 'currency', // currency | decimal(기본값) | percent
+      currency: 'KRW', // ISO 4217 통화 코드
+      currencyDisplay: 'code', // symbol(기본값) | name | code
+      useGrouping: true, // 천단위 구분(기본값 true)
+      notation: 'compact', // 기본값 standard. compact는 "100억" 형식으로 표시
+      maximumFractionDigits: 0, // 최대 소수점(환율은 통화 코드 목록에서 제공하는 숫자와 minDigts 중 큰 값. 통화 코드 목록에 정보가 없으면 2 기본값)
+    },
+    decimal: {
+      style: 'decimal', // 소수
+      minimumFractionDigits: 2, // 최소 소수점(숫자/백분율 기본값은 0)
+      maximumFractionDigits: 5, // 최대 소수점(숫자는 minDigits와 3 중 큰 값)
+    },
+    percent: {
+      style: 'percent',
+      useGrouping: false,
+      maximumFractionDigits: 2, // 최대 소수점(백분율은 minDigits와 0 중 큰 값)
+    },
+  },
 };
