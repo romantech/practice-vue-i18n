@@ -119,7 +119,7 @@ export default {
     );
 
     console.info(
-      `%cCURRENT_TIME: ${d(new Date(), 'long', 'en')}`,
+      `%cCURRENT_TIME: ${d(new Date(), 'long', locale)}`,
       consoleStyle,
     );
 
