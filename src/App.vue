@@ -118,11 +118,6 @@ export default {
       consoleStyle,
     );
 
-    console.info(
-      `%cCURRENT_TIME: ${d(new Date(), 'long', locale)}`,
-      consoleStyle,
-    );
-
     onUpdated(() => {
       console.info(`%cCURRENT_LOCALE: ${locale.value}`, consoleStyle);
     });
@@ -153,6 +148,15 @@ export default {
           return lang;
       }
     };
+
+    console.info(
+      `%cCURRENT_TIME: ${d(
+        new Date(),
+        'long',
+        formattingLocale(locale.value),
+      )}`,
+      consoleStyle,
+    );
 
     return { cancelMsg, formattingLocale, setCurrency };
   },
