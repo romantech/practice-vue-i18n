@@ -5,7 +5,7 @@ module.exports = {
       Object.assign(definitions[0], {
         // Feature flag __VUE_PROD_HYDRATION_MISMATCH_DETAILS__ is not explicitly defined... 오류 해결
         // https://vuejs.org/api/compile-time-flags
-        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true',
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
       });
       return definitions;
     });
