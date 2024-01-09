@@ -47,4 +47,5 @@ export default createI18n({
   },
   silentTranslationWarn: true, // 개발모드에서 translation warn 끄기
   silentFallbackWarn: true, // 개발모드에서 fallback warn 끄기
+  legacy: false, // uncaught syntaxerror: not available in legacy mode 오류 해결
 });
