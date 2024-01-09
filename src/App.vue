@@ -41,7 +41,7 @@
   </section>
   <section>
     <h3>PLURALIZATION</h3>
-    <span>{{ $tc('car', 100) }}</span>
+    <span>{{ $t('car', 100) }}</span>
   </section>
   <section>
     <h3>LINKED MESSAGES</h3>
