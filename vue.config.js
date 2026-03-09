@@ -16,5 +16,4 @@ module.exports = {
   // publicPath 속성에 프로젝트 이름 입력 ex) /project-name/
   publicPath:
     process.env.NODE_ENV === 'production' ? '/practice-vue-i18n/' : '/',
-  outputDir: 'docs', // 빌드 output 폴더
 };
