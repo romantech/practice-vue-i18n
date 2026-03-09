@@ -81,8 +81,8 @@
 </template>
 
 <script>
-import { useI18n } from 'vue-i18n';
 import { computed, onUpdated } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'App',
@@ -122,7 +122,7 @@ export default {
       console.info(`%cCURRENT_LOCALE: ${locale.value}`, consoleStyle);
     });
 
-    const setCurrency = num => {
+    const setCurrency = (num) => {
       switch (locale.value) {
         case 'en':
         case 'en-US':
@@ -136,7 +136,7 @@ export default {
     };
 
     const cancelMsg = computed(() => t('cancel'));
-    const formattingLocale = lang => {
+    const formattingLocale = (lang) => {
       switch (lang) {
         case 'ko':
           return 'ko-KR';
