@@ -1,7 +1,7 @@
 // vue.config.js
 module.exports = {
-  chainWebpack: config => {
-    config.plugin('define').tap(definitions => {
+  chainWebpack: (config) => {
+    config.plugin('define').tap((definitions) => {
       Object.assign(definitions[0], {
         // Feature flag __VUE_PROD_HYDRATION_MISMATCH_DETAILS__ is not explicitly defined... 오류 해결
         // https://vuejs.org/api/compile-time-flags

@@ -43,7 +43,7 @@ export default createI18n({
   numberFormats,
   modifiers: {
     // custom modifiers
-    snakeCase: str => str.split(' ').join('_'),
+    snakeCase: (str) => str.split(' ').join('_'),
   },
   silentTranslationWarn: true, // 개발모드에서 translation warn 끄기
   silentFallbackWarn: true, // 개발모드에서 fallback warn 끄기
