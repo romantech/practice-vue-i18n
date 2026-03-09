@@ -1,9 +1,8 @@
-/* cSpell:disable */
 import { createI18n } from 'vue-i18n';
-import numberFormats from '@/locale/numberFormats';
 import datetimeFormats from '@/locale/datetimeFormats';
-import ko from '@/locale/ko';
 import en from '@/locale/en';
+import ko from '@/locale/ko';
+import numberFormats from '@/locale/numberFormats';
 import zh from '@/locale/zh';
 
 const getLang = () => {
@@ -45,7 +44,7 @@ export default createI18n({
     // custom modifiers
     snakeCase: (str) => str.split(' ').join('_'),
   },
-  silentTranslationWarn: true, // 개발모드에서 translation warn 끄기
-  silentFallbackWarn: true, // 개발모드에서 fallback warn 끄기
-  legacy: false, // uncaught syntaxerror: not available in legacy mode 오류 해결
+  missingWarn: false, // 개발모드에서 missing translation warn 끄기
+  fallbackWarn: false, // 개발모드에서 fallback warn 끄기
+  legacy: false, // uncaught syntax error: not available in legacy mode 오류 해결
 });
