@@ -5,3 +5,7 @@ allowBuilds:
   '@parcel/watcher': true
 
 minimumReleaseAge: 10080
+
+minimumReleaseAgeExclude:
+  - '@biomejs/biome@2.6.4'
+  - '@babel/parser@7.29.12'
